@@ -1,0 +1,39 @@
+name: Lean build
+
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Lean (elan)
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+
+      - name: Fetch Mathlib
+        run: |
+          lake update
+          lake exe cache get
+
+      - name: Build the formalization
+        run: lake build
+
+      - name: Check axioms of main theorems
+        run: |
+          printf '%s\n' \
+            'import ZeroCertificates' \
+            '#print axioms ZeroCert.certificate_transfer' \
+            '#print axioms ZeroCert.monic_cauchy_certificate' \
+            '#print axioms ZeroCert.ratio_certificate' \
+            '#print axioms ZeroCert.ratioLawInv_second_order' \
+            '#print axioms ZeroCert.gumbel_limit' \
+            '#print axioms ZeroCert.gaussian_degree_free_radius' \
+            '#print axioms ZeroCert.extreme_root_tail' \
+            '#print axioms ZeroCert.gaussian_annular_union' \
+            '#print axioms ZeroCert.chernoff_certificate' > AxiomCheck.lean
+          lake env lean AxiomCheck.lean | tee axioms.txt
+          if grep -q sorryAx axioms.txt; then echo "Found sorry"; exit 1; fi
