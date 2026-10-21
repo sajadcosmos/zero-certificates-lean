@@ -1,5 +1,7 @@
 # Lean 4 formalization: *Finite-Degree Probabilistic Zero Certificates for Random Polynomials*
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23523458.svg)](https://doi.org/10.5281/zenodo.23523458)
+
 This repository contains the complete Lean 4 / Mathlib formalization accompanying
 
 > S. A. Sheikh,
@@ -56,7 +58,28 @@ An automated build (GitHub Actions, see the **Actions** tab) runs on every chang
 | `VERIFICATION.md` | Map from the paper's numbered results to Lean theorem names |
 | `lakefile.toml` | Lake build configuration (Mathlib dependency) |
 | `lean-toolchain` | Pinned Lean version |
+| `CITATION.cff` | Citation metadata (powers GitHub's "Cite this repository" button) |
 | `.github/workflows/lean.yml` | Automated build and axiom check |
+
+## How to cite
+
+If you use this formalization, please cite it as:
+
+> S. A. Sheikh, *Lean 4 formalization of "Finite-Degree Probabilistic Zero Certificates for Random Polynomials,"* version 1.0, Zenodo (2026), doi:[10.5281/zenodo.23523458](https://doi.org/10.5281/zenodo.23523458).
+
+BibTeX:
+
+```bibtex
+@software{sheikh_zero_certificates_lean_2026,
+  author    = {Sheikh, Sajad Ahmad},
+  title     = {Lean 4 formalization of ``Finite-Degree Probabilistic Zero Certificates for Random Polynomials''},
+  version   = {1.0},
+  year      = {2026},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.23523458},
+  url       = {https://doi.org/10.5281/zenodo.23523458}
+}
+```
 
 ## Contact
 

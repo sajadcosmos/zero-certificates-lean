@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use this formalization, please cite it as below."
+type: software
+title: >-
+  Lean 4 formalization of "Finite-Degree Probabilistic Zero Certificates
+  for Random Polynomials"
+authors:
+  - family-names: Sheikh
+    given-names: Sajad Ahmad
+    affiliation: >-
+      Department of Mathematics, University of Kashmir, South Campus,
+      Anantnag, 192101, Jammu and Kashmir, India
+    email: sajadsheikh@uok.edu.in
+version: "1.0"
+doi: 10.5281/zenodo.23523458
+date-released: 2026-10-21
+repository-code: "https://github.com/sajadcosmos/zero-certificates-lean"
+url: "https://doi.org/10.5281/zenodo.23523458"
+license: MIT
+keywords:
+  - Lean 4
+  - Mathlib
+  - formal verification
+  - random polynomials
+  - zero bounds
